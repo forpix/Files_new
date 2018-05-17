@@ -29,10 +29,9 @@ jobs:
      - git reset --hard HEAD
      - git checkout master
      - git merge origin/working 
-     - git clean -ffd
      - git fetch origin
      - git branch -a
-     - git pull
+     - git pull --rebase origin master
      - git remote set-url origin "https://forpix:mdali%40786@github.com/forpix/Files_new.git
      - git push -f origin master 
       
