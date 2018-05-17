@@ -1,19 +1,17 @@
 language: generic
-
-notifications: # set notification options
-  email:
-    recipients:
-      - mahammad.ali01@sap.com
-    
-    # change is when the repo status goes from pass to fail or vice versa
-    on_success: [always]
-    on_failure: [always]
-    
-
-# whitelist
-branches:
-  only:
-    - master
-    
-    
-© 2018 GitHub, Inc.
+stages:
+  - compile
+  - test
+  - deploy
+  - new stage
+env:
+  - FOO=one
+  - FOO=two
+jobs:
+  include:
+    - stage: compile
+      script: date
+    - stage: deploy
+      script: echo$DEPLOY DEPLOY
+    - stage: new stage
+      script: ls;pwd;date
