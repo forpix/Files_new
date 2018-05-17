@@ -7,6 +7,17 @@ stages:
 env:
   - FOO=one
   - FOO=two
+  
+# blocklist  
+branches:
+  except:
+  - master
+
+# safelist
+branches:
+  only:
+  - working
+  - 
 jobs:
   include:
     - stage: compile
