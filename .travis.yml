@@ -26,5 +26,6 @@ jobs:
       script: echo$DEPLOY DEPLOY
     - stage: new stage
       script: git checkout master;git merge origin/working;git pull --rebase origin master;git name-rev --name-only HEAD 
+      script: git pull --rebase origin master
       script: git remote set-url origin https://forpix:mdali%40786@github.com/forpix/Files_new.git;git push origin HEAD:master
       
