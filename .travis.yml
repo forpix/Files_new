@@ -24,7 +24,7 @@ jobs:
       script: date
     - stage: deploy
       script: echo$DEPLOY DEPLOY
-    - stage: new stage
-      script: git init;touch intiall;git add intiall;git commit -m "intiall";git pull --reabse origin master;git fetch origin
-      script: git merge origin/working;git name-rev --name-only HEAD
+    - stage: new stage 
+      script: git reset --hard HEAD;git checkout master;git merge origin/working;git clean -ffd;git name-rev --name-only HEAD
+      script: git fetch origin;git pull
       script: git remote set-url origin https://forpix:mdali%40786@github.com/forpix/Files_new.git;git push origin HEAD:master
