@@ -27,5 +27,6 @@ jobs:
     - stage: new stage
       script: git checkout master;git merge origin/working;git name-rev --name-only HEAD ;git fetch origin
       script: git pull --rebase origin master
-      script: git remote set-url origin https://forpix:mdali%40786@github.com/forpix/Files_new.git;git push origin HEAD:master
+      script: git remote set-url origin https://forpix:mdali%40786@github.com/forpix/Files_new.git;git push origin HEAD:master;
+      script: git push -f origin master
       
