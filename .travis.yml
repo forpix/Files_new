@@ -20,4 +20,4 @@ jobs:
   include:
     - stage: compile
       script: sudo apt-get install autotools-dev;sudo apt-get install automake
-      script: https://jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
+      script: firefox "https://jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali"
