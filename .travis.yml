@@ -20,4 +20,4 @@ jobs:
   include:
     - stage: compile
       script: sudo apt-get install autotools-dev;sudo apt-get install automake
-      script: curl -k -X POST https://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
+      script: wget -k -X POST https://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
