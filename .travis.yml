@@ -2,6 +2,10 @@ language: generic
 stages:
   - compile
   
+addons:
+    apt:
+      update: true
+  
 # blocklist  
 branches:
   except:
