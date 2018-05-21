@@ -15,5 +15,5 @@ branches:
 jobs:
   include:
     - stage: compile
-      script: wget http://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build
+      script: wget http://c5271915:Moula%40470@jaas.wdf.sap.corp:31078/job/sap-newcode/build
 
