@@ -1,10 +1,12 @@
 language: generic
 stages:
   - compile
-  
+
+url: https://jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
 addons:
     apt:
       update: true
+      
   
 # blocklist  
 branches:
