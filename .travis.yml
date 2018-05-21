@@ -19,5 +19,4 @@ branches:
 jobs:
   include:
     - stage: compile
-      script: curl http://admin:1dffe9fadfdbc4ad2509ef43cd45a419@localhost:8080/job/failedbuilds/build?token=Mdali@12345
-
+      script: curl http://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali@12345
