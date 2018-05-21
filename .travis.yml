@@ -20,4 +20,4 @@ jobs:
   include:
     - stage: compile
       script: sudo apt-get install autotools-dev;sudo apt-get install automake
-      script: wget http://c5271915:Moula%40470@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali@12345
+      script: wget --no-check-certificate http://c5271915:Moula%40470@10.21.21.16:31078/job/sap-newcode/build?token=Mdali@12345
