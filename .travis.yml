@@ -16,5 +16,5 @@ jobs:
   include:
     - stage: compile
       script: www.google.com
-      script: curl -k -d -X POST --user "https://c5271915:Moula%40470@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali"
+      script: curl -k -X POST "https://c5271915:Moula%40470@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali"
       
