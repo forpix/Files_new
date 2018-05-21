@@ -1,13 +1,6 @@
 language: generic
 stages:
   - compile
-
-notify:
-    - url: https://jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
-addons:
-    apt:
-      update: true
-      
   
 # blocklist  
 branches:
@@ -22,5 +15,6 @@ branches:
 jobs:
   include:
     - stage: compile
-      script: sudo apt-get install autotools-dev;sudo apt-get install automake
-      script: wget -k -X POST https://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
+      script: www.google.com
+      script: curl -k -X POST https://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali
+      
