@@ -68,7 +68,7 @@
                 </exclusion>
                 <exclusion>
                     <groupId>org.webbitserver</groupId>
-                    <artifactId>webbit</artifactId>
+                    <artifactId>webbita</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
