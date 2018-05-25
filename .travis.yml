@@ -14,7 +14,15 @@ branches:
 branches:
   only:
   - working
-  - 
+jenkins:
+  pipeline_jenkinsfile: assets/Jenkinsfile
+  stash:
+    - name: artifacts
+      matrix_axis:
+        env: GROOVY_VERSION="2.4.13"
+    - name: html
+      matrix_axis:
+        env: GROOVY_VERSION="2.4.13"
 jobs:
   include:
     - stage: compile
