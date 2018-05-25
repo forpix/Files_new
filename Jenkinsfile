@@ -1,27 +1,22 @@
 
 pipeline {
     agent any
-
     stages {
-        stage ('Compile Stage') {
-
+        stage("Stage 1") {
             steps {
-                    sh 'mvn clean compile'
-            }
-        }
-
-        stage ('Testing Stage') {
-
-            steps {
-                    sh 'mvn test'
-            }
-        }
-
-
-        stage ('Deployment Stage') {
-            steps {
-                    sh 'mvn deploy'
-            }
-        }
+                sh 'pwd'
+}
     }
+	stage("Stage 2") {
+            steps {
+                sh 'pwd'
+}
+    }
+    }
+    post { 
+        success{ 
+               echo 'build is successful'
+        }   
+        }
+        
 }
