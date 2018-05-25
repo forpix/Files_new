@@ -3,29 +3,29 @@ stages:
   - compile
   - test
   - deploy
-  - new stage
 env:
   - FOO=one
   - FOO=two
-  
-# blocklist  
-branches:
-  except:
-  - master
-
-# safelist
-branches:
-  only:
-  - working
-  - 
+jobs:
+  include:
+    - stage: compile
+      script: echo$COMPILE COMPILE
+    - stage: deploy
+      script: echo$DEPLOY DEPLOY 
+ 
+ 
+language: generic
+stages:
+  - compile
+  - test
+  - deploy
+env:
+  - FOO=one
+  - FOO=two
 jobs:
   include:
     - stage: compile
       script: date
     - stage: deploy
-      script: echo$DEPLOY DEPLOY
-    - stage: new stage
-      script: git add -A;git reset --hard HEAD;git checkout master;git merge origin/working;git clean -ffd;git fetch origin
-      script: git pull;
-      script: git remote set-url origin "https://forpix:mdali%40786@github.com/forpix/Files_new.git";git push -u origin master
+      script: pwd
       
