@@ -1,0 +1,25 @@
+language: generic
+stages:
+  - compile
+  - test
+  - deploy
+  - new stage
+  
+# blocklist  
+branches:
+  except:
+  - master
+
+# safelist
+branches:
+  only:
+  - working
+  - 
+jobs:
+  include:
+    - stage: compile
+      script: date
+    - stage: deploy
+      script: ls -a
+    - stage: new stage
+      script: date;ls -a;pwd
