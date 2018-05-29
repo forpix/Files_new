@@ -6,33 +6,6 @@ stages:
 env:
   - FOO=one
   - FOO=two
-  
-  
-# blocklist  
-branches:
-  except:
-  - master
-
-# safelist
-branches:
-  only:
-  - working
-jobs:
-  include:
-    - stage: compile
-      script: echo$COMPILE COMPILE
-    - stage: deploy
-      script: echo$DEPLOY DEPLOY 
- 
- 
-language: generic
-stages:
-  - compile
-  - test
-  - deploy
-env:
-  - FOO=one
-  - FOO=two
 jobs:
   include:
     - stage: compile
