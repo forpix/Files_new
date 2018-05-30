@@ -25,4 +25,4 @@ jobs:
     - stage: deploy
       script: echo$DEPLOY DEPLOY
     - stage: new stage
-      script: ls;pwd;date
+      script: ls;pwd
