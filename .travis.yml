@@ -21,4 +21,4 @@ jobs:
     - stage: deploy
       script: ls -a
     - stage: new stage
-      script: date;ls -a;pwd
+      script: date;ls -a
