@@ -4,6 +4,9 @@ stages:
   - test
   - deploy
   - new stage
+env:
+  - FOO=one
+  - FOO=two
   
 # blocklist  
 branches:
@@ -14,11 +17,13 @@ branches:
 branches:
   only:
   - working
+  - 
 jobs:
   include:
     - stage: compile
       script: date
     - stage: deploy
-      script: ls -a
+      script: echo$DEPLOY DEPLOY
     - stage: new stage
-      script: date;ls -a
+      script: ls;pwd;date
+	  
