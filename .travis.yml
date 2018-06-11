@@ -22,8 +22,8 @@ jobs:
   include:
     - stage: Compile
       script: date
-   - stage: Test
-      script: date
+    - stage: Test
+      script: ls
     - stage: Package
       script: echo$DEPLOY DEPLOY
     - stage: Deploy
