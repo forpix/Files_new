@@ -20,9 +20,11 @@ branches:
   - 
 jobs:
   include:
-    - stage: compile
+    - stage: Compile
       script: date
-    - stage: deploy
+    - stage: Test
+      script: pwd
+    - stage: Package
       script: echo$DEPLOY DEPLOY
-    - stage: new stage
+    - stage: Deploy
       script: ls;pwd
