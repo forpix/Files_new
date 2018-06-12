@@ -25,4 +25,4 @@ jobs:
     - stage: Test
       script: pwd
     - stage: Package
-      script: echo$DEPLOY DEPLOY
+      script: pwd
