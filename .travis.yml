@@ -1,14 +1,4 @@
-language: java
-jdk: oraclejdk8
-install: true
-script: ./mvnw clean install
-cache:
-  directories:
-  - $HOME/.m2
-script:
-  - ./mvnw clean install
-  - bash <(curl -s https://codecov.io/bash)
-  
+language: generic 
 stages:
   - compile
   - test
@@ -36,5 +26,3 @@ jobs:
       script: pwd
     - stage: Package
       script: echo$DEPLOY DEPLOY
-    - stage: Deploy
-      script: ls;pwd
