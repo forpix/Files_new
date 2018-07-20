@@ -15,6 +15,11 @@ pipeline {
                 
                  echo "${GIT_COMMIT}"
                   echo "${GIT_BRANCH}"
+                 echo "${GIT_URL}"
+                 echo "${GIT_PREVIOUS_COMMIT}"
+                 echo "${BUILD_ID}"
+                 echo "${GIT_AUTHOR_EMAIL}"
+                 
         }
             }
         }
