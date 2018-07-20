@@ -12,6 +12,8 @@ pipeline {
           sh 'git log -n 1 --skip 1 --pretty=format:"%H"'
       def scmVars = checkout scm
     def branchName = scmVars.GIT_BRANCH
+                 echo "${BRANCH_NAME}"
+                 echo "${GIT_COMMIT}"
         }
             }
         }
