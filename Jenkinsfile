@@ -18,7 +18,7 @@ pipeline {
                  echo "${GIT_URL}"
                  echo "${GIT_PREVIOUS_COMMIT}"
                  echo "${BUILD_ID}"
-                 echo "${GIT_AUTHOR_EMAIL}"
+                echo "GWBT_COMMIT_BEFORE:  $GWBT_COMMIT_BEFORE"
                  
         }
             }
