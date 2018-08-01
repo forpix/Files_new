@@ -1,26 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('\u2781 Build') {
             steps {
-             script {
-          def commitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-          println("commitSha: ${commitSha}")
-          def branch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
-          println("BranchName: ${branch}")
-          sh "git remote -v"
-          sh 'git log -n 1 --skip 1 --pretty=format:"%H"'
-      def scmVars = checkout scm
-    def branchName = scmVars.GIT_BRANCH
-                
-                 echo "${GIT_COMMIT}"
-                  echo "${GIT_BRANCH}"
-                 echo "${GIT_URL}"
-                 echo "${GIT_PREVIOUS_COMMIT}"
-                 echo "${BUILD_ID}"
-                echo "GWBT_COMMIT_BEFORE:  $GWBT_COMMIT_BEFORE"
+             sh '''
+             git fetch --all
+             a=$(git branch -r --sort=-committerdate --format='%(HEAD)%(objectname:short)'|awk '{print $1;exit}') 
+             echo $a
+             b=$(git branch -r --sort=-committerdate --format='%(HEAD)%(contents:subject)'|awk '{print $1}')
+             echo $b
+             c=$(git branch -r --sort=-committerdate --format='%(HEAD) %(refname:short)'|awk '{print $1;exit}')
+             echo $c
+             git remote -v
+              echo "${GIT_BRANCH}"
+                echo "${GIT_URL}"
+                echo "$WORKSPACE{}"
+              echo "the commit id is "${GIT_COMMIT}" "
+              echo "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+             
+             '''
                  
-        }
+        
             }
         }
     }
