@@ -15,7 +15,7 @@ echo "The ${env.JOB_NAME} job has begin on"
 echo "${GIT_COMMIT}"
 sh "ls"
 echo "the commit id is ${env.GIT_COMMIT} "	
-stage 'lets check this too"
+stage 'lets check this too'
  def scmVars = checkout([$class: 'GitSCM', branches: [[name: '*/master'], [name: '*/Temp'], [name: '*/working']], 
  doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
  userRemoteConfigs: [[credentialsId: 'b7b976fe-d54a-4990-a311-9c6339c5541d', url: 'https://github.com/forpix/Files_new']]])
