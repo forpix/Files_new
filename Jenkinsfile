@@ -7,7 +7,7 @@ node('master') {
   echo "-- pwd: $currentDir"
   echo "-- workspace: ${env.WORKSPACE}"
 sh "ls"
-	echo 'the commit id is"${GIT_COMMIT}" '
+	echo "the commit id is '${GIT_COMMIT}' "
   stage 'say your name'
-	echo 'I am node "${en.GIT_BRANCH}" '
+	echo 'I am node '${en.GIT_BRANCH}' '
 }
