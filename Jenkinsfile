@@ -21,5 +21,7 @@ stage '\u2756 for commit id'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
  commitChangeset = sh(returnStdout: true, script: 'git diff-tree --no-commit-id --name-status -r HEAD').trim()
- 
+ echo "commitChangeset"
+ shrtCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+ echo "shrtCommit" 
 }
