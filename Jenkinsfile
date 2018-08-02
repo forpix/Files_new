@@ -16,6 +16,12 @@ pipeline {
                 echo "a"
             }
         }
+		stagee('\u2780 build') {
+		steps {
+		echo "${commitSha}"
+		echo "${env.GIT_COMMIT}"
+		
+		}
+		}
     }
-}
-
+	}
