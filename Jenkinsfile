@@ -6,7 +6,7 @@ node('master') {
 stage 'basic info'
  sh "git fetch --all"
 def currentDir = pwd()
-def comitId =  sh ' "${GIT_COMMIT}" '
+def comitId =  sh '"${GIT_COMMIT}"'
 echo "-- pwd: $currentDir"
 echo "-- workspace: ${env.WORKSPACE}"
 echo "--the commit id is: $comitId "
