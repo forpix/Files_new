@@ -18,8 +18,8 @@ stage '\u2756 for commit id'
  echo "${shortCommit}"
  
  stage '\u2756 for branch'
- sh '${GIT_BRANCH}' > GIT_BRANC'
-def branchName = readFile('GIT_BRANC')
+ sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)"' > GIT_BRANCH'
+def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
   def env = build.getEnvironment()
 def gitCommit = env['GIT_COMMIT']
