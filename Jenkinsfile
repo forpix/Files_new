@@ -21,6 +21,8 @@ stage '\u2756 for commit id'
  sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
-def gitCommit = env['GIT_COMMIT']
- echo gitCommit
+def branch = env.BRANCH_NAME
+   sh "My branch name: ${branch}"
+ def commit = env.GIT_COMMIT
+   sh "My branch name: ${commit}"
 }
