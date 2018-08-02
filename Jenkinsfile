@@ -23,13 +23,5 @@ def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
   def env = build.getEnvironment()
 def gitCommit = env['GIT_COMMIT']
-def shortGitCommit = gitCommit[0..6]
-
-def pa = new ParametersAction([
-  new StringParameterValue("SHORT_GIT_COMMIT", shortGitCommit)
-])
-
-// add variable to current job
-build.addAction(pa)]
-    
+ echo gitCommit
 }
