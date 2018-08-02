@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('\u2781 Build') {
             steps {
-		    sh 'git fetch --all'
-                 sh 'git name-rev --name-only HEAD > GIT_BRANCH'
-		sh 'cat GIT_BRANCH'
-		git_branch = readFile('GIT_BRANCH').trim()
-		env.GIT_BRANCH = git_branch
+		   echo "${GIT_COMMIT}"
+                  echo "${GIT_BRANCH}"
+                 echo "${GIT_URL}"
+                 echo "${GIT_PREVIOUS_COMMIT}"
+               echo "${BUILD_ID}"
             }
         }
 		stage('\u2780 new age') {
