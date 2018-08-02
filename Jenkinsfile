@@ -12,14 +12,13 @@ pipeline {
           println("commitSha: ${commitSha}")                                       
         } 
                 echo "${commitSha}"
-                echo "${env.GIT_COMMIT}"
- 
+              
             }
         }
-		stage('\u2780 build') {
+		stage('\u2780 new age') {
 		steps {
 		echo  'the comit id "${commitSha}" '
-		echo "${env.GIT_COMMIT}"
+	
 		
 		}
 		}
