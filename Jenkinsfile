@@ -6,10 +6,8 @@ node('master') {
 stage 'basic info'
  sh "git fetch --all"
 def currentDir = pwd()
-def comitId =  sh 'git branch -r --sort=-committerdate --format='%(HEAD)%(objectname:short)'
 echo "-- pwd: $currentDir"
 echo "-- workspace: ${env.WORKSPACE}"
-echo "--the commit id is: $comitId "
 echo "--the commited id is : ${env.GIT_BRANCH}"
 echo "The ${env.JOB_NAME} job has begin on"
 sh "ls"
