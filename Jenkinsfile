@@ -17,7 +17,7 @@ stage '\u2756 for commit id'
  echo "${shortCommit}"
  
  stage '\u2756 for branch'
- sh ' "${GIT_BRANCH}" > GIT_BRANC'
+ sh " '${GIT_BRANCH}' > GIT_BRANC"
 def branchName = readFile('GIT_BRANC')
  echo "${branchName}"
  commitChangeset = sh(returnStdout: true, script: 'git diff-tree --no-commit-id --name-status -r HEAD').trim()
