@@ -7,16 +7,15 @@ stage 'basic info'
  sh "git fetch --all"
 def currentDir = pwd()
 echo "-- pwd: $currentDir"
+sh 'git branch -r --sort=-committerdate --format="%(HEAD)%(objectname:short)" > GIT_COMMIT'
+def shortCommit = readFile('GIT_COMMIT').take(6)
+echo "${shortCommit}"
 echo "-- workspace: ${env.WORKSPACE}"
 echo "--the commited id is : ${env.GIT_BRANCH}"
 echo "The ${env.JOB_NAME} job has begin on"
 sh "ls"
 echo "the commit id is ${env.GIT_COMMIT} "	
 stage 'lets check this too'
- def scmVars = checkout([$class: 'GitSCM', branches: [[name: '*/master'], [name: '*/Temp'], [name: '*/working']], 
- doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
- userRemoteConfigs: [[credentialsId: 'b7b976fe-d54a-4990-a311-9c6339c5541d', url: 'https://github.com/forpix/Files_new']]])
-env.GIT_COMMIT = scmVars.GIT_COMMIT
-env.GIT_BRANCH = scmVars.GIT_BRANCH
+ sh 'echo Branch Name: $BRANCH_NAME'
  
 }
