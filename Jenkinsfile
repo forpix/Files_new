@@ -13,12 +13,12 @@ pipeline {
         } 
                 echo "${commitSha}"
                 echo "${env.GIT_COMMIT}"
-                echo "a"
+ 
             }
         }
-		stagee('\u2780 build') {
+		stage('\u2780 build') {
 		steps {
-		echo "${commitSha}"
+		echo  'the comit id "${commitSha}" '
 		echo "${env.GIT_COMMIT}"
 		
 		}
