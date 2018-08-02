@@ -1,23 +1,13 @@
-pipeline {
-    agent any
-	
-    stages {
-        stage('\u2781 Build') {
-		steps {
-			sh 'export adam = "${GIT_COMMIT}" '
-		   echo "${GIT_COMMIT}"
-                  echo "${GIT_BRANCH}"
-                 echo "${GIT_URL}"
-                 echo "${GIT_PREVIOUS_COMMIT}"
-               echo "${BUILD_ID}"
-            }
-        }
-		stage('\u2780 new age') {
-		steps {
-		echo  'the comit id "${commitSha}" '
-		echo $a
-		
-		}
-		}
-    }
-	}
+#!/groovy
+
+node('master') {
+
+  stage 'print some basic info'
+  def currentDir = pwd()
+  echo "-- pwd: $currentDir"
+  echo "-- workspace: ${env.WORKSPACE}"
+sh "ls"
+	echo 'the commit id is"${GIT_COMMIT}" '
+  stage 'say your name'
+	echo "I am node ${env.NODE_NAME}
+}
