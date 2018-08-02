@@ -17,7 +17,7 @@ stage '\u2756 for commit id'
  echo "${shortCommit}"
  
  stage '\u2756 for branch'
- sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
+ sh '${GIT_BRANCH}> GIT_BRANCH'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
  commitChangeset = sh(returnStdout: true, script: 'git diff-tree --no-commit-id --name-status -r HEAD').trim()
