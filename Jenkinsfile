@@ -4,9 +4,10 @@ pipeline {
         stage('\u2781 Build') {
             steps {
 		    sh 'git fetch --all'
-             sh 'git rev-parse HEAD > commit'
-            def commit = readFile('commit').trim()
-              echo "commit"
+                 sh 'git name-rev --name-only HEAD > GIT_BRANCH'
+		sh 'cat GIT_BRANCH'
+		git_branch = readFile('GIT_BRANCH').trim()
+		env.GIT_BRANCH = git_branch
             }
         }
 		stage('\u2780 new age') {
