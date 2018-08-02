@@ -3,7 +3,7 @@ import groovy.transform.Field
 
 node('master') {
 
-	stage 'basic info' {
+	stage 'basic info'
   def currentDir = pwd()
 	def comitId =  sh '{$GIT_BRANCH}'
   echo "-- pwd: $currentDir"
@@ -13,8 +13,5 @@ node('master') {
 
 sh "ls"
 	echo "the commit id is ${env.GIT_COMMIT} "
-	}
-	stage 'second '{
-	echo "I am node ${env.GIT_BRANCH}"
-	}
+	
 }
