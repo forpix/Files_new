@@ -12,7 +12,7 @@ echo "-- workspace: ${env.WORKSPACE}"
 echo "--the commit id is: $comitId "
 echo "--the commited id is : ${env.GIT_BRANCH}"
 echo "The ${env.JOB_NAME} job has begin on"
-  echo "${GIT_COMMIT}
+echo "${GIT_COMMIT}"
 sh "ls"
 echo "the commit id is ${env.GIT_COMMIT} "	
 }
