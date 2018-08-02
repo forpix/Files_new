@@ -23,4 +23,6 @@ def branch = env.BRANCH_NAME
    sh 'echo $BRANCH_NAME'
  def commit = env.GIT_COMMIT
    sh 'echo $commit'
+ def envVars = Jenkins.instance.getGlobalNodeProperties()[0].getEnvVars() 
+println envVars['myVar']
 }
