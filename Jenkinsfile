@@ -5,7 +5,7 @@ node('master') {
 
 stage 'basic info'
 def currentDir = pwd()
-def comitId =  sh '{$GIT_BRANCH}'
+def comitId =  sh '${GIT_BRANCH}'
 echo "-- pwd: $currentDir"
 echo "-- workspace: ${env.WORKSPACE}"
 echo "--the commit id is: $comitId  "
