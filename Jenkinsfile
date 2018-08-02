@@ -22,7 +22,7 @@ stage '\u2756 for commit id'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
 def branch = env.BRANCH_NAME
-   sh "My branch name: ${branch}"
+   sh 'echo $BRANCH_NAME'
  def commit = env.GIT_COMMIT
-   sh "My branch name: ${commit}"
+   sh 'echo $commit'
 }
