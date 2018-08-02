@@ -1,4 +1,5 @@
 #!/groovy
+import groovy.transform.Field
 
 node('master') {
 
@@ -6,6 +7,8 @@ node('master') {
   def currentDir = pwd()
   echo "-- pwd: $currentDir"
   echo "-- workspace: ${env.WORKSPACE}"
+	def beginJobEmailBody = "The ${env.JOB_NAME} job has begin on"
+
 sh "ls"
 	echo "the commit id is ${env.GIT_COMMIT} "
   stage 'say your name'
