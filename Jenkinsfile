@@ -9,5 +9,5 @@ node('master') {
 sh "ls"
 	echo 'the commit id is"${GIT_COMMIT}" '
   stage 'say your name'
-	echo "I am node "${GIT_BRANCH}" "
+	echo 'I am node "${en.GIT_BRANCH}" '
 }
