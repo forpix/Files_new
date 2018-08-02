@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('\u2781 Build') {
 		steps {
-			sh 'export a = "${GIT_COMMIT}" '
+			sh 'export adam = "${GIT_COMMIT}" '
 		   echo "${GIT_COMMIT}"
                   echo "${GIT_BRANCH}"
                  echo "${GIT_URL}"
