@@ -11,7 +11,7 @@ pipeline {
           def commitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
           println("commitSha: ${commitSha}")                                       
         } 
-                echo "${commitSha}"
+  
               
             }
         }
