@@ -17,9 +17,13 @@ pipeline {
                 echo "$WORKSPACE{}"
               echo "the commit id is "${GIT_COMMIT}" "
               echo "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-             
+              script {
+          def commitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+          println("commitSha: ${commitSha}")
+        } 
              '''
-                 
+               echo "${commitSha}"
+                echo "${env.GIT_COMMIT}"
         echo "a"
             }
         }
