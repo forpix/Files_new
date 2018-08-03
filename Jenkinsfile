@@ -22,8 +22,11 @@ echo "Here we are checking the special function"
  def scmVars = checkout scm
  echo "let's new funtion for commit id"
 def commitHash = scmVars.GIT_COMMIT
+ def commitBranch = scmVars.GIT_BRANCH
  echo "****checking the println func.******"
  println "${commitHash}"
+ echo "**************branch check"
+ echo " ${commitBranch}"
  echo "****checking the println echo one.******"
  echo "${commitHash}"
 
