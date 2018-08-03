@@ -9,7 +9,7 @@ stage '\u2756 basic info'
 def commitHash = scmVars.GIT_COMMIT
 def commitBranch = scmVars.GIT_BRANCH
 
-println  ' the commit id is "${commitHash }" '
-println  ' the commited branch is "${commitBranch}" '
+echo  " the commit id is '${commitHash }' "
+println  "${commitBranch}"
 
 }
