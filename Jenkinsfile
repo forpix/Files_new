@@ -18,14 +18,18 @@ stage '\u2756 for commit id'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
  
+def scmVars = checkout scm
+def commitHash = scmVars.GIT_COMMIT
+ println "${commitHash}"
+ echo "${commitHash}"
+ 
  
 def branch = env.BRANCH_NAME
    sh 'echo $BRANCH_NAME'
  def commit = env.GIT_COMMIT
    sh 'echo $commit'
- def scmVars = checkout scm
-def commitHash = scmVars.GIT_COMMIT
- echo "commitHash"
+ 
+
  
  
 }
