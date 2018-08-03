@@ -19,6 +19,8 @@ def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
  
 echo "Here we are checking the special function"
+ def scmVars = checkout scm
+ echo "let's new funtion for commit id"
 def commitHash = scmVars.GIT_COMMIT
  echo "****checking the println func.******"
  println "${commitHash}"
