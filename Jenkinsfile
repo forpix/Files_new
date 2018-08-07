@@ -4,8 +4,7 @@ import hudson.model.*
 
 node('master') {
 
-stage '\u2756 basic info'
- sh "git fetch --all"
+stage '\u2776 basic info'
 sh 'git branch -r --sort=-committerdate --format="%(HEAD)%(objectname:short)" > GIT_COMMIT'
 def shortCommit = readFile('GIT_COMMIT').take(6)
 echo "The ${env.JOB_NAME} job has begin on"
