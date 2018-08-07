@@ -14,7 +14,7 @@ def shortCommit = readFile('GIT_COMMIT').take(6)
 echo "The ${env.JOB_NAME} job has begin on"
  }
  stage ('\u2777 for commit id'){
- echo "${shortCommit}"
+ echo "chek here"
  }
  stage ('\u2778 for branch'){
  sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
