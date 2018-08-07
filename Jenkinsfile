@@ -4,7 +4,7 @@ import hudson.model.*
 
 node('master') {
 
- stage ('\u2776 basic info'){
+ stage ('\u2773 basic info'){
 def scmVars=checkout scm
 echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
 echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
