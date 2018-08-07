@@ -1,40 +1,50 @@
-#!/groovy
-import groovy.transform.Field
+#!/usr/bin/env groovy
+/*
+ *    This reflects commentary at https://wilsonmar.github.io/jenkins2-pipeline/
+ *    This for comments only
+ */
 import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
 
-node('master') {
+def getRepoURL() {
+ sh "git config --get remote.origin.url>.git/remote-url"
+    return readFile (".git/remote-url").trim
+}
 
- stage ('\u2773 basic info'){
-def scmVars=checkout scm
-echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
-echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
-echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMI
-sh 'git branch -r --sort=-committerdate --format="%(HEAD)%(objectname:short)" > GIT_COMMIT'
-def shortCommit = readFile('GIT_COMMIT').take(6)
-echo "The ${env.JOB_NAME} job has begin on"
+node {
+    stage ('\u2781 Stage') {
+    echo 'checkout'
+    git url: "https://github.com/forpix/Files_new.git"  
+    echo "new way for commit:"
+    }
+   stage ('\u2782 Stage') {
+   echo 'branch'
+   echo "all new here"
+   def scmVars=checkout scm
+   echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
+   echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
+   echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMIT
+   }
+   stage ('\u2782 Stage') {
+  git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
+   sh '''
+   git checkout Temp
+   git merge -X theirs origin/master
+   git remote set-url origin "https://forpix:mdali%40786@ggithub.com/forpix/Files_new.git"
+   git push -u origin Temp
+   echo "merged to the Temp branch has been done"
+   '''
+   }
+   post {
+   success {
+           mail to: "mahammad.ali01@sap.com", subject:"success: ${currentBuild.fullDisplayName}", body: "Boo, we successed.https://github.wdf.sap.corp/c5271915/Testing.git"
+        }
+   failure {
+            echo 'Your job is failed  "${currentBuild.fullDisplayName}" '
+        }
  }
- stage ('\u2777 for commit id'){
- echo "chek here"
-  echo "added the github in mutli branch pipeline"
- }
- stage ('\u2781 for branch'){
- sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
-def branchName = readFile('GIT_BRANCH')
- echo "${branchName}"
-echo "Here we are checking the special function"
- def scmVars = checkout scm
- echo "let's new funtion for commit id"
-def commitHash = scmVars.GIT_COMMIT
- echo "****checking the println func.******"
- println "${commitHash}"
- echo "****checking the println echo one.******"
- echo "${commitHash}"
- }
-  stage ('\u2779 for') {
-  echo "check"
-  }
-  stage ('\u2780 for') {
-   echo "added the new line"
-   cleanWs()
-  }
 }
