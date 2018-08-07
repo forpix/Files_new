@@ -32,12 +32,5 @@ node {
    git remote set-url origin "https://forpix:mdali%40786@ggithub.com/forpix/Files_new.git"
    echo "merged to the Temp branch has been done"
    '''
-   
-   post 
-   success
-           mail to: "mahammad.ali01@sap.com", subject:"success: ${currentBuild.fullDisplayName}", body: "Boo, we successed.https://github.wdf.sap.corp/c5271915/Testing.git"
-        
-   failure 
-            echo 'Your here again job is failed  "${currentBuild.fullDisplayName}" '
-        
+    mail to: "mahammad.ali01@sap.com", subject:"success: ${currentBuild.fullDisplayName}", body: "Boo, we successed.https://github.wdf.sap.corp/c5271915/Testing.git"
  }
