@@ -8,7 +8,7 @@ node('master') {
 def scmVars=checkout scm
 echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
 echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
-cho 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMI
+echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMI
 sh 'git branch -r --sort=-committerdate --format="%(HEAD)%(objectname:short)" > GIT_COMMIT'
 def shortCommit = readFile('GIT_COMMIT').take(6)
 echo "The ${env.JOB_NAME} job has begin on"
@@ -34,5 +34,6 @@ def commitHash = scmVars.GIT_COMMIT
   }
   stage ('\u2780 for') {
    echo "added the new line"
+   cleanWs()
   }
 }
