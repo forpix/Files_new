@@ -15,6 +15,7 @@ echo "The ${env.JOB_NAME} job has begin on"
  }
  stage ('\u2777 for commit id'){
  echo "chek here"
+  echo "added the github in mutli branch pipeline"
  }
  stage ('\u2781 for branch'){
  sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
