@@ -29,7 +29,6 @@ node {
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    sh '''
    git checkout Temp
-   git remote set-url origin "https://forpix:mdali%40786@ggithub.com/forpix/Files_new.git"
    echo "merged to the Temp branch has been done"
    '''
     mail to: "mahammad.ali01@sap.com", subject:"success: ${currentBuild.fullDisplayName}", body: "Boo, we successed.https://github.wdf.sap.corp/c5271915/Testing.git"
