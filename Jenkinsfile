@@ -16,12 +16,12 @@ def getRepoURL() {
 }
 
 node {
-    stage ('\u2781 Stage') {
+    stage ('\u2780 Stage') {
     echo 'checkout'
     git url: "https://github.com/forpix/Files_new.git"  
     echo "new way for commit:"
     }
-   stage ('\u2782 Stage') {
+   stage ('\u2781 Stage') {
    echo 'branch'
    echo "all new here"
    def scmVars=checkout scm
