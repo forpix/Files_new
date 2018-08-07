@@ -28,6 +28,7 @@ def commitHash = scmVars.GIT_COMMIT
  println "${commitHash}"
  echo "****checking the println echo one.******"
  echo "${commitHash}"
+ }
   stage ('\u2778 for') {
   echo "check"
   }
