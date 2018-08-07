@@ -16,7 +16,7 @@ echo "The ${env.JOB_NAME} job has begin on"
  stage ('\u2777 for commit id'){
  echo "chek here"
  }
- stage ('\u2778 for branch'){
+ stage ('\u2781 for branch'){
  sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
@@ -29,7 +29,7 @@ def commitHash = scmVars.GIT_COMMIT
  echo "****checking the println echo one.******"
  echo "${commitHash}"
  }
-  stage ('\u2778 for') {
+  stage ('\u2779 for') {
   echo "check"
   }
   stage ('\u2780 for') {
