@@ -31,5 +31,4 @@ node {
    git checkout Temp
    echo "merged to the Temp branch has been done"
    '''
-    mail to: "mahammad.ali01@sap.com", subject:"success: ${currentBuild.fullDisplayName}", body: "Boo, we successed.https://github.wdf.sap.corp/c5271915/Testing.git"
  }
