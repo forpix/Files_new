@@ -10,10 +10,10 @@ sh 'git branch -r --sort=-committerdate --format="%(HEAD)%(objectname:short)" > 
 def shortCommit = readFile('GIT_COMMIT').take(6)
 echo "The ${env.JOB_NAME} job has begin on"
 
-stage '\u2756 for commit id'
+stage '\u2776 for commit id'
  echo "${shortCommit}"
  
- stage '\u2756 for branch'
+ stage '\u2776 for branch'
  sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
