@@ -33,9 +33,7 @@ node {
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    sh '''
    git checkout Temp
-   git merge -X theirs origin/master
    git remote set-url origin "https://forpix:mdali%40786@ggithub.com/forpix/Files_new.git"
-   git push -u origin Temp
    echo "merged to the Temp branch has been done"
    '''
    }
