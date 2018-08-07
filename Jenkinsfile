@@ -12,23 +12,24 @@ import java.net.URL
 
 
 node {
-    stage ('\u2780 Stage') 
+    stage ('\u2780 Stage') {
     echo 'checkout'
     git url: "https://github.com/forpix/Files_new.git"  
     echo "new way for commit:"
-    
-   stage ('\u2781 Stage') 
+}
+   stage ('\u2781 Stage') {
    echo 'branch'
    echo "all new here"
    def scmVars=checkout scm
    echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
    echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
    echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMIT
-   
-   stage ('\u2782 Stage') 
+   }
+   stage ('\u2782 Stage') {
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    sh '''
    git checkout Temp
    echo "merged to the Temp branch has been done"
    '''
+   }
  }
