@@ -4,19 +4,22 @@ import hudson.model.*
 
 node('master') {
 
-stage '\u2776 basic info'
+ stage ('\u2776 basic info'){
+def scmVars=checkout scm
+echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
+echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
+cho 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMI
 sh 'git branch -r --sort=-committerdate --format="%(HEAD)%(objectname:short)" > GIT_COMMIT'
 def shortCommit = readFile('GIT_COMMIT').take(6)
 echo "The ${env.JOB_NAME} job has begin on"
-
-stage '\u2776 for commit id'
+ }
+ stage ('\u2777 for commit id'){
  echo "${shortCommit}"
- 
- stage '\u2776 for branch'
+ }
+ stage ('\u2778 for branch'){
  sh 'git branch -r --sort=-committerdate  --format="%(HEAD) %(refname:short)" > GIT_BRANCH'
 def branchName = readFile('GIT_BRANCH')
  echo "${branchName}"
- 
 echo "Here we are checking the special function"
  def scmVars = checkout scm
  echo "let's new funtion for commit id"
@@ -25,5 +28,10 @@ def commitHash = scmVars.GIT_COMMIT
  println "${commitHash}"
  echo "****checking the println echo one.******"
  echo "${commitHash}"
-
+  stage ('\u2778 for') {
+  echo "check"
+  }
+  stage ('\u2780 for') {
+   echo "added the new line"
+  }
 }
