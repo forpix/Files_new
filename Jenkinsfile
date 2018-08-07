@@ -34,7 +34,7 @@ node {
    '''
    
    post 
-   success 
+   success
            mail to: "mahammad.ali01@sap.com", subject:"success: ${currentBuild.fullDisplayName}", body: "Boo, we successed.https://github.wdf.sap.corp/c5271915/Testing.git"
         
    failure 
