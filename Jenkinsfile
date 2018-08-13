@@ -19,6 +19,7 @@ node {
 }
    stage ('\u2781 Stage') {
    echo 'branch'
+   sleep time:1, unit:"MINUTES"
    echo "all new here"
    def scmVars=checkout scm
    echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
