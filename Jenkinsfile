@@ -22,7 +22,8 @@ stage('optional: do magic') {
     if (userInput) {
         echo "do magic"
     } else {
-        // do what ever you want when skipping this build
+        echo 'this is from else condition,'
+        sh 'pwd'
         currentBuild.result = "UNSTABLE"
     }
 }
