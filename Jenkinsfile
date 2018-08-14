@@ -42,9 +42,6 @@ stage('optional: do magic') {
    }
    stage ('\u2782 Stage') {
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
-   sh '''
-   git checkout Temp
-   echo "merged to the Temp branch has been done"
-   '''
+   echo 'we are in last stage of the build'
    }
  }
