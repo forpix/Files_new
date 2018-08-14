@@ -20,7 +20,8 @@ node {
 
 stage('optional: do magic') {
     if (userInput) {
-       
+       echo 'this stage is optional only'
+        echo 'this is from optional stage'
     } else {
         echo 'this is from else condition,'
         sh 'pwd'
