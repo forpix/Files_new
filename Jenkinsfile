@@ -20,7 +20,7 @@ node {
 
 stage('optional: do magic') {
     if (userInput) {
-        echo "do magic"
+       
     } else {
         echo 'this is from else condition,'
         sh 'pwd'
@@ -42,7 +42,6 @@ stage('optional: do magic') {
    echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMIT
    }
    stage ('\u2782 Stage') {
-   post
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    echo 'we are in last stage of the build'
    }
