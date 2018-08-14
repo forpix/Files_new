@@ -13,9 +13,13 @@ import java.net.URL
 
 node {
     stage ('\u2780 Stage') {
-    echo 'checkout'
     git url: "https://github.com/forpix/Files_new.git"  
-    echo "new way for commit:"
+    echo "we are in to First Stage:"
+    sh "mkdir -p output"
+    writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
+    writeFile file: "output/uselessfile.md", text: "This file is useless, no need to archive it."
+    stage "Archive build output"
+    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
 }
    stage ('\u2781 Stage') {
    echo 'branch'
@@ -29,26 +33,5 @@ node {
    stage ('\u2782 Stage') {
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    echo 'we are in last stage of the build'
-   sh'''
-   git tag -a v1.0 -m "my version 1.0 for user input and check box to decide to run the stage or not " 
-   git remote set-url origin "https://forpix:mdali%40786@github.com/forpix/Files_new.git"
-   git push origin --tags
-   '''
    }
-   stage ('\u2780 UserInput-Stage') {
-    userInput = input(
-        id: 'userInput', message: "Some important question?", 
-        parameters: [booleanParam(defaultValue: false, description: 'really?', name: 'myValue')])
-}
-
-stage('optional: do magic') {
-    if (userInput) {
-       echo 'this stage is optional only'
-        echo 'this is from optional stage'
-    } else {
-        echo 'this is from else condition,'
-        sh 'pwd'
-        currentBuild.result = "UNSTABLE"
-    }
-}
  }
