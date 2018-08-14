@@ -13,6 +13,20 @@ import java.net.URL
 
 node {
     stage ('\u2780 Stage') {
+    userInput = input(
+        id: 'userInput', message: "Some important question?", 
+        parameters: [booleanParam(defaultValue: false, description: 'really?', name: 'myValue')])
+}
+
+stage('optional: do magic') {
+    if (userInput) {
+        echo "do magic"
+    } else {
+        // do what ever you want when skipping this build
+        currentBuild.result = "UNSTABLE"
+    }
+}
+    stage ('\u2780 Stage') {
     echo 'checkout'
     git url: "https://github.com/forpix/Files_new.git"  
     echo "new way for commit:"
