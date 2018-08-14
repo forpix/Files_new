@@ -29,6 +29,11 @@ node {
    stage ('\u2782 Stage') {
   git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    echo 'we are in last stage of the build'
+   sh'''
+   git tag -a v1.0 -m "my version 1.0 for user input and check box to decide to run the stage or not " 
+   git remote set-url origin "https://forpix:mdali%40786@github.com/forpix/Files_new.git"
+   git push origin --tags
+   '''
    }
    stage ('\u2780 UserInput-Stage') {
     userInput = input(
