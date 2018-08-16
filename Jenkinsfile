@@ -48,8 +48,8 @@ node {
 	    post
       	}
     } catch (err) {
+	    echo "#### ### ## #"
 	echo "trying the new status"
-	def causes = currentBuild.rawBuild.getCauses()
 	    echo "getting the new commit Id to be done"
 	 def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
 	  echo "**** *** ** *"
