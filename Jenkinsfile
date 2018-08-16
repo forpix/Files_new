@@ -50,7 +50,7 @@ echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
 git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    echo 'we are in last stage of the build'
    }
-    } catch (err) {
+    } catch {
 	  echo "#### ### ## #"
 	  echo "**** *** ** *"
         currentBuild.result = 'FAILURE'
