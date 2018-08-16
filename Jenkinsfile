@@ -33,7 +33,7 @@ node {
 		    echo '**** **** *** ** * scripts to run static tests...'
 	        },
 	        'unit': {
-	            sh "ll"
+	            sh "ls -a"
 		    echo '##### ### ## #  scripts to run unit tests...'
 	        },
 	        'integration': {
@@ -44,9 +44,19 @@ node {
       	stage ('Deploy') {
             sh "ls -a"
 	    echo '++++ +++ ++ +  scripts to deploy to server...'
+	    echo "My branch is: ${env.BRANCH_NAME}"
+  	    def flavor = flavor(env.BRANCH_NAME)
+            echo "Building flavor ${flavor}"
+	    post
+		
       	}
     } catch (err) {
-        currentBuild.result = 'FAILED'
+	echo "trying the new status"
+	def causes = currentBuild.rawBuild.getCauses()
+	    echo "getting the new commit Id to be done"
+	 def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
+	  echo "**** *** ** *"
+        currentBuild.result = 'UNSTABLE'
         throw err
     }
 }
