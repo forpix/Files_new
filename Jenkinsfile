@@ -45,6 +45,7 @@ node {
             sh "ls -a"
 	    echo '++++ +++ ++ +  scripts to deploy to server...'
 	    echo "My branch is: '${env.BRANCH_NAME}'"
+		post
       	}
     } catch (err) {
 	  echo "#### ### ## #"
@@ -53,6 +54,6 @@ node {
     }
       finally {
 	     echo"================================================"
-	      echo "=====================this is from finally staage====================="
+	      echo "===== ======  ====== ==== this is from finally staage ==== ======= ===== ===="
         }
 }
