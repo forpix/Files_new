@@ -26,6 +26,7 @@ node {
    echo 'branch'
    sleep time:1, unit:"MINUTES"
    echo "all new here"
+   post
    def scmVars=checkout scm
    echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
    echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
