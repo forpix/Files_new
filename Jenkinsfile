@@ -11,10 +11,8 @@ import groovy.json.JsonOutput
 import java.net.URL
 
 node {
- 	// Clean workspace before doing anything
-    deleteDir()
-node {
-		 try {
+cleanWs()	
+try {
     stage ('\u2780 Stage') {
     echo 'checkout'
     git url: "https://github.com/forpix/Files_new.git"  
@@ -35,7 +33,7 @@ git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.
    echo 'we are in last stage of the build'
    }
    }
-     catch(e) {
+     catch{
 	  echo "#### ### ## #"
 	  echo "**** *** ** *"
         currentBuild.result = 'FAILURE'
