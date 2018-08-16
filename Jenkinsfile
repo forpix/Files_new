@@ -15,38 +15,41 @@ node {
     deleteDir()
 
     try {
-        stage ('Clone') {
-        	checkout scm
-        }
-        stage ('Build') {
-        	sh "pwd"
-		echo 'shell scripts to build project...'
-		sh '''
-		chmod +x pattern.sh
-		./pattern.sh
-		echo 'script is done here, now in to parallel steps'
-		'''
-        }
-        stage ('Tests') {
-	        parallel 'static': {
-	            sh "ls"
-		    echo '**** **** *** ** * scripts to run static tests...'
-	        },
-	        'unit': {
-	            sh "ls -a"
-		    echo '##### ### ## #  scripts to run unit tests...'
-	        },
-	        'integration': {
-	            sh "date"
-		    echo '&&&& &&& && & scripts to run integration tests...'
-	        }
-        }
-      	stage ('Deploy') {
-            sh "ls -a"
-	    echo '++++ +++ ++ +  scripts to deploy to server...'
-	    echo "My branch is: '${env.BRANCH_NAME}'"
-		post
-      	}
+        ode {
+    stage ('\u2780 Stage') {
+    userInput = input(
+        id: 'userInput', message: "Some important question?", 
+        parameters: [booleanParam(defaultValue: false, description: 'really?', name: 'myValue')])
+}
+
+stage('optional: do magic') {
+    if (userInput) {
+        echo "do magic"
+    } else {
+        echo 'this is from else condition,'
+        sh 'pwd'
+        currentBuild.result = "UNSTABLE"
+    }
+}
+    stage ('\u2780 Stage') {
+    echo 'checkout'
+    git url: "https://github.com/forpix/Files_new.git"  
+    echo "new way for commit:"
+}
+   stage ('\u2781 Stage') {
+   echo 'branch'
+   sleep time:1, unit:"MINUTES"
+   echo "all new here"
+   def scmVars=checkout scm
+   echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
+echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
+   echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMIT
+   }
+   stage ('\u2782 Stage') {
+   post
+git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
+   echo 'we are in last stage of the build'
+   }
     } catch (err) {
 	  echo "#### ### ## #"
 	  echo "**** *** ** *"
