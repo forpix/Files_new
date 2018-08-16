@@ -13,24 +13,8 @@ import java.net.URL
 node {
  	// Clean workspace before doing anything
     deleteDir()
-
-    try {
-        ode {
-    stage ('\u2780 Stage') {
-    userInput = input(
-        id: 'userInput', message: "Some important question?", 
-        parameters: [booleanParam(defaultValue: false, description: 'really?', name: 'myValue')])
-}
-
-stage('optional: do magic') {
-    if (userInput) {
-        echo "do magic"
-    } else {
-        echo 'this is from else condition,'
-        sh 'pwd'
-        currentBuild.result = "UNSTABLE"
-    }
-}
+node {
+		 try {
     stage ('\u2780 Stage') {
     echo 'checkout'
     git url: "https://github.com/forpix/Files_new.git"  
@@ -50,9 +34,11 @@ echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
 git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
    echo 'we are in last stage of the build'
    }
-    } catch {
+   }
+     catch {
 	  echo "#### ### ## #"
 	  echo "**** *** ** *"
         currentBuild.result = 'FAILURE'
     }
+
 }
