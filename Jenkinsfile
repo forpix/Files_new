@@ -50,6 +50,6 @@ node {
     } catch (err) {
 	  echo "#### ### ## #"
 	  echo "**** *** ** *"
-        currentBuild.result = 'UNSTABLE'
+        currentBuild.result = 'FAILURE'
     }
 }
