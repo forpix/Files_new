@@ -52,8 +52,4 @@ node {
 	  echo "**** *** ** *"
         currentBuild.result = 'UNSTABLE'
     }
-      finally {
-	     echo"================================================"
-	      echo "===== ======  ====== ==== this is from finally staage ==== ======= ===== ===="
-        }
 }
