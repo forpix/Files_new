@@ -44,11 +44,8 @@ node {
       	stage ('Deploy') {
             sh "ls -a"
 	    echo '++++ +++ ++ +  scripts to deploy to server...'
-	    echo "My branch is: ${env.BRANCH_NAME}"
-  	    def flavor = flavor(env.BRANCH_NAME)
-            echo "Building flavor ${flavor}"
+	    echo "My branch is: '${env.BRANCH_NAME}'"
 	    post
-		
       	}
     } catch (err) {
 	echo "trying the new status"
