@@ -13,13 +13,11 @@ node {
     try { 
      cleanWs()
     stage ("\u2780 Stage") {
-    git url: "https://github.wdf.sap.corp/c5271915/Testing.git"  
     echo "successfully checkout in to the Git Repo,\u270C "
     echo"\u2705 This is from 1 stage is completed"
       }
    stage ('\u2781 Stage') {
    def scmVars=checkout scm
-   git credentialsId: '903bd0af-122c-48be-bee4-d1943a55feed', url: 'https://github.wdf.sap.corp/c5271915/Testing.git'
    echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
    echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
    echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMIT
