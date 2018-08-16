@@ -33,7 +33,7 @@ git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.
    echo 'we are in last stage of the build'
    }
    }
-     catch{
+     catch (e){
 	  echo "#### ### ## #"
 	  echo "**** *** ** *"
         currentBuild.result = 'FAILURE'
