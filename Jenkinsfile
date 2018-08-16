@@ -19,21 +19,31 @@ node {
         	checkout scm
         }
         stage ('Build') {
-        	sh "echo 'shell scripts to build project...'"
+        	sh "pwd"
+		echo 'shell scripts to build project...'
+		sh '''
+		chmod +x pattern.sh
+		./pattern.sh
+		echo 'script is done here, now in to parallel steps'
+		'''
         }
         stage ('Tests') {
 	        parallel 'static': {
-	            sh "echo 'shell scripts to run static tests...'"
+	            sh "ls"
+		    echo '**** **** *** ** * scripts to run static tests...'
 	        },
 	        'unit': {
-	            sh "echo 'shell scripts to run unit tests...'"
+	            sh "ll"
+		    echo '##### ### ## #  scripts to run unit tests...'
 	        },
 	        'integration': {
-	            sh "echo 'shell scripts to run integration tests...'"
+	            sh "date"
+		    echo '&&&& &&& && & scripts to run integration tests...'
 	        }
         }
       	stage ('Deploy') {
-            sh "echo 'shell scripts to deploy to server...'"
+            sh "ls -a"
+	    echo '++++ +++ ++ +  scripts to deploy to server...'
       	}
     } catch (err) {
         currentBuild.result = 'FAILED'
