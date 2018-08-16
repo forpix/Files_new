@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 /*
- *    This reflects commentary at https://wilsonmar.github.io/jenkins2-pipeline/
- *    This for comments only
+ *    This for comment section only !
+ *    
  */
 import hudson.model.*
 import hudson.EnvVars
@@ -9,34 +9,33 @@ import groovy.json.JsonSlurperClassic
 import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
-
 node {
-cleanWs()	
-try {
-    stage ('\u2780 Stage') {
-    echo 'checkout'
-    git url: "https://github.com/forpix/Files_new.git"  
-    echo "new way for commit:"
-}
+    try { 
+     cleanWs()
+    stage ("\u2780 Stage") {
+    git url: "https://github.wdf.sap.corp/c5271915/Testing.git"  
+    echo "successfully checkout in to the Git Repo,\u270C "
+    echo"\u2705 This is from 1 stage is completed"
+      }
    stage ('\u2781 Stage') {
-   echo 'branch'
-   sleep time:1, unit:"MINUTES"
-   echo "all new here"
    def scmVars=checkout scm
+   git credentialsId: '903bd0af-122c-48be-bee4-d1943a55feed', url: 'https://github.wdf.sap.corp/c5271915/Testing.git'
    echo 'scm : the commit id is ' +scmVars.GIT_COMMIT
-echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
+   echo 'scm : the commit branch  is ' +scmVars.GIT_BRANCH
    echo 'scm : the previous commit id is ' +scmVars.GIT_PREVIOUS_COMMIT
+   echo "\u2705 this is from 2nd Stage, completed"
    }
-   stage ('\u2782 Stage') {
-   post
-git credentialsId: 'c536ecaa-ab06-459f-8dfb-03e78f6689a1', url: 'https://github.com/forpix/Files_new.git'
-   echo 'we are in last stage of the build'
+   stage ('\u2782 Stage') { 
+   echo "we are in third stage of the build"
+   echo "\u2705 this is from 3rd Stage,Completed"
+       post
    }
-   }
-     catch (e){
-	  echo "#### ### ## #"
-	  echo "**** *** ** *"
-        currentBuild.result = 'FAILURE'
+        echo '############ \u2705 This will run only if successful #############'
+         sh "pwd;ls -a"
+    } 
+  catch (e) {
+   echo '************* \u274C This will run only if failed and sending a mail \u2709 \u2709 ****************'
+   echo "\u2709 sent a mail for failure"
+   throw e
     }
-
 }
