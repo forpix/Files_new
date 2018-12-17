@@ -25,4 +25,4 @@ jobs:
     - stage: Test
       script: pwd
     - stage: Package
-      script: pwd
+      script: curl -X POST "http://c5271915:f039920dec682e3c264c2e01bfc64193@jaas.wdf.sap.corp:31078/job/sap-newcode/build?token=Mdali"
