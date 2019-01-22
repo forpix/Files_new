@@ -29,10 +29,13 @@ node {
    stage ('\u2782 Stage') { 
    echo "we are in third stage of the build"
    echo "\u2705 this is from 3rd Stage,Completed"
-       post
+       
    }
         echo '############ \u2705 This will run only if successful #############'
          sh "pwd;ls -a"
+        wrap([$class: 'TimestamperBuildWrapper']) {
+        echo 'last step from the Jenkinsfile'
+    }
     } 
   catch (e) {
    echo '************* \u274C This will run only if failed and sending a mail \u2709 \u2709 ****************'
