@@ -10,6 +10,9 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
 node {
+    wrap([$class: 'TimestamperBuildWrapper']) {
+        echo 'hello from Workflow'
+    }
     try { 
      cleanWs()
     stage ("\u2780 Stage") {
